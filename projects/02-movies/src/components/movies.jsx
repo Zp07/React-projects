@@ -1,4 +1,27 @@
-export function ListOfMovies ({movies}) {
+import PropTypes from 'prop-types'
+
+ListOfMovies.propTypes = {
+    movies:PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            title:PropTypes.string,
+            year: PropTypes.string.isRequired,
+            poster: PropTypes.string.isRequired
+        })
+    ).isRequired
+}
+Movies.propTypes = {
+    movies:PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            title:PropTypes.string,
+            year: PropTypes.string.isRequired,
+            poster: PropTypes.string.isRequired
+        })
+    ).isRequired
+}
+
+function ListOfMovies ({ movies}) {
     return(
         <ul>
             {
@@ -21,7 +44,7 @@ function NoMovieResults () {
 }
 
 export function Movies ({movies}) {
-    const hasMovies = movies?.length > 0
+    const hasMovies = movies?.length > 0 
 
     return(
         hasMovies

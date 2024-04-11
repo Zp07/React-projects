@@ -1,15 +1,13 @@
-import './App.css'
+import { useState } from 'react'
 import { useMovies } from './hooks/useMovies'
 import { Movies } from './components/movies'
-import { useState } from 'react'
-
-
+import './App.css'
 
 function App() {
-  const {movies} = useMovies()
-  const [query, setQuery] = useState('')
+  const { movies } = useMovies()
+  const [ query, setQuery ] = useState('')
 
-  const hanldeSumbmit = (event) => {
+  const hanldeSumbmit = ( event ) => {
     event.preventDefault()
     console.log({query})
 }
@@ -19,11 +17,14 @@ function App() {
 
   return (
     <div className='page'>
-
       <header>
         <h1>Buscador de peliculas</h1>
-        <form className='form' onSubmit={hanldeSumbmit}>
-          <input onChange={handleChange} value={query}  name='query' placeholder='Avengers, Star Wars, The Matrix'/>
+        <form className='form' onSubmit={ hanldeSumbmit }>
+          <input 
+          onChange={ handleChange } 
+          value={ query }  
+          name='query' 
+          placeholder='Search'/>
           <button type='sumbmit'>Buscar</button>
         </form>
       </header>
